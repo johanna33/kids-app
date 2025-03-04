@@ -1,0 +1,23 @@
+{
+  "name": "kids-app",
+  "version": "1.0.0",
+  "description": "A preschool learning web application",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "preschool",
+    "education",
+    "learning",
+    "kids"
+  ],
+  "author": "Johanna Calderon",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.9.5"
+  }
+} 

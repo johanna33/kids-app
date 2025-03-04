@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="200px" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="300" height="200" rx="20" ry="20" fill="#E3F2FD" />
+  
+  <!-- Sun -->
+  <circle cx="50" cy="50" r="30" fill="#FFEB3B" />
+  <g stroke="#FFC107" stroke-width="2">
+    <line x1="50" y1="10" x2="50" y2="0" />
+    <line x1="50" y1="100" x2="50" y2="90" />
+    <line x1="10" y1="50" x2="0" y2="50" />
+    <line x1="100" y1="50" x2="90" y2="50" />
+    <line x1="22" y1="22" x2="15" y2="15" />
+    <line x1="78" y1="78" x2="85" y2="85" />
+    <line x1="22" y1="78" x2="15" y2="85" />
+    <line x1="78" y1="22" x2="85" y2="15" />
+  </g>
+  
+  <!-- Rainbow -->
+  <path d="M150,180 C150,120 200,120 200,180" stroke="#FF5252" stroke-width="10" fill="none" />
+  <path d="M150,180 C150,110 200,110 200,180" stroke="#FF9800" stroke-width="10" fill="none" />
+  <path d="M150,180 C150,100 200,100 200,180" stroke="#FFEB3B" stroke-width="10" fill="none" />
+  <path d="M150,180 C150,90 200,90 200,180" stroke="#4CAF50" stroke-width="10" fill="none" />
+  <path d="M150,180 C150,80 200,80 200,180" stroke="#2196F3" stroke-width="10" fill="none" />
+  <path d="M150,180 C150,70 200,70 200,180" stroke="#9C27B0" stroke-width="10" fill="none" />
+  
+  <!-- Clouds -->
+  <g fill="white">
+    <ellipse cx="260" cy="40" rx="30" ry="20" />
+    <ellipse cx="230" cy="40" rx="20" ry="15" />
+    <ellipse cx="290" cy="40" rx="20" ry="15" />
+    
+    <ellipse cx="100" cy="30" rx="25" ry="15" />
+    <ellipse cx="80" cy="30" rx="15" ry="10" />
+    <ellipse cx="120" cy="30" rx="15" ry="10" />
+  </g>
+  
+  <!-- Trees -->
+  <g>
+    <rect x="40" y="150" width="10" height="30" fill="#795548" />
+    <polygon points="45,110 25,150 65,150" fill="#4CAF50" />
+    <polygon points="45,130 30,160 60,160" fill="#388E3C" />
+  </g>
+  
+  <g>
+    <rect x="250" y="150" width="10" height="30" fill="#795548" />
+    <polygon points="255,110 235,150 275,150" fill="#4CAF50" />
+    <polygon points="255,130 240,160 270,160" fill="#388E3C" />
+  </g>
+  
+  <!-- Flowers -->
+  <g transform="translate(150, 150)">
+    <rect x="-2" y="0" width="4" height="20" fill="#7CB342" />
+    <circle cx="0" cy="0" r="8" fill="#E91E63" />
+    <circle cx="7" cy="-3" r="5" fill="#EC407A" />
+    <circle cx="3" cy="-7" r="5" fill="#EC407A" />
+    <circle cx="-3" cy="-7" r="5" fill="#EC407A" />
+    <circle cx="-7" cy="-3" r="5" fill="#EC407A" />
+    <circle cx="-7" cy="3" r="5" fill="#EC407A" />
+    <circle cx="-3" cy="7" r="5" fill="#EC407A" />
+    <circle cx="3" cy="7" r="5" fill="#EC407A" />
+    <circle cx="7" cy="3" r="5" fill="#EC407A" />
+    <circle cx="0" cy="0" r="4" fill="#FFC107" />
+  </g>
+  
+  <g transform="translate(180, 160)">
+    <rect x="-2" y="0" width="4" height="15" fill="#7CB342" />
+    <circle cx="0" cy="0" r="6" fill="#9C27B0" />
+    <circle cx="5" cy="-2" r="4" fill="#AB47BC" />
+    <circle cx="2" cy="-5" r="4" fill="#AB47BC" />
+    <circle cx="-2" cy="-5" r="4" fill="#AB47BC" />
+    <circle cx="-5" cy="-2" r="4" fill="#AB47BC" />
+    <circle cx="-5" cy="2" r="4" fill="#AB47BC" />
+    <circle cx="-2" cy="5" r="4" fill="#AB47BC" />
+    <circle cx="2" cy="5" r="4" fill="#AB47BC" />
+    <circle cx="5" cy="2" r="4" fill="#AB47BC" />
+    <circle cx="0" cy="0" r="3" fill="#FFC107" />
+  </g>
+  
+  <g transform="translate(120, 160)">
+    <rect x="-2" y="0" width="4" height="15" fill="#7CB342" />
+    <circle cx="0" cy="0" r="6" fill="#2196F3" />
+    <circle cx="5" cy="-2" r="4" fill="#64B5F6" />
+    <circle cx="2" cy="-5" r="4" fill="#64B5F6" />
+    <circle cx="-2" cy="-5" r="4" fill="#64B5F6" />
+    <circle cx="-5" cy="-2" r="4" fill="#64B5F6" />
+    <circle cx="-5" cy="2" r="4" fill="#64B5F6" />
+    <circle cx="-2" cy="5" r="4" fill="#64B5F6" />
+    <circle cx="2" cy="5" r="4" fill="#64B5F6" />
+    <circle cx="5" cy="2" r="4" fill="#64B5F6" />
+    <circle cx="0" cy="0" r="3" fill="#FFC107" />
+  </g>
+</svg> 

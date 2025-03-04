@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preschool Learning App</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="home-button" data-section="welcome">
+                <span>🏠</span>
+                <span>Home</span>
+            </button>
+            <h1>Preschool Learning Fun yay!</h1>
+            <div class="character">
+                <img src="./assets/owl.svg" alt="Owl Teacher" id="mascot">
+            </div>
+        </header>
+        
+        <nav id="main-nav">
+            <button class="nav-button" data-section="alphabet">
+                <span>ABC</span>
+                <span>Alphabet</span>
+            </button>
+            <button class="nav-button" data-section="numbers">
+                <span>123</span>
+                <span>Numbers</span>
+            </button>
+            <button class="nav-button" data-section="colors">
+                <span>🎨</span>
+                <span>Colors</span>
+            </button>
+            <button class="nav-button" data-section="shapes">
+                <span>◯△□</span>
+                <span>Shapes</span>
+            </button>
+        </nav>
+        
+        <main id="content-area">
+            <!-- Content will be loaded dynamically -->
+            <div class="welcome-screen active">
+                <h2>Welcome to Learning Fun!</h2>
+                <p>Click on a button above to start learning</p>
+                <div class="mascot-welcome">
+                    <img src="./assets/welcome.svg" alt="Welcome" class="welcome-image">
+                </div>
+            </div>
+            
+            <div class="section-content" id="alphabet-section">
+                <h2>Let's Learn the Alphabet!</h2>
+                <div class="alphabet-container"></div>
+            </div>
+            
+            <div class="section-content" id="numbers-section">
+                <h2>Let's Count Together!</h2>
+                <div class="numbers-container"></div>
+            </div>
+            
+            <div class="section-content" id="colors-section">
+                <h2>Colorful World!</h2>
+                <div class="colors-container"></div>
+            </div>
+            
+            <div class="section-content" id="shapes-section">
+                <h2>Fun with Shapes!</h2>
+                <div class="shapes-container"></div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Made with ❤️ for little learners</p>
+        </footer>
+    </div>
+    
+    <script src="./scripts/main.ts"></script>
+</body>
+</html> 
