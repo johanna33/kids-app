@@ -8,6 +8,7 @@ An interactive web application designed to help preschoolers learn basic concept
 - Number recognition and counting
 - Shape identification
 - Color recognition
+- And more
 
 
 ## Getting Started
@@ -16,6 +17,13 @@ An interactive web application designed to help preschoolers learn basic concept
 
 - Node.js (v12 or higher)
 - npm (v6 or higher)
+
+### Technologies Used
+
+- HTML5
+- CSS3
+- TypeScript
+- Parcel Bundler 
 
 ### Installation
 
@@ -39,10 +47,3 @@ npm run build
 ```
 
 The built files will be in the `dist` directory.
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- TypeScript
-- Parcel Bundler 
