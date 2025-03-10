@@ -421,3 +421,83 @@ footer {
         opacity: 1;
     }
 }
+
+/* Positions Section */
+.positions-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.position-card {
+    width: 180px;
+    height: 180px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.position-card:hover {
+    transform: scale(1.05);
+}
+
+.position-display {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.position-name {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    text-transform: uppercase;
+}
+
+.position-object {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.position-reference {
+    width: 80px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    position: absolute;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .position-card {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .position-card {
+        width: 130px;
+        height: 130px;
+    }
+}

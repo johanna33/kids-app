@@ -26,3 +26,20 @@ export interface IShapeData {
     svgPath: string;
     sound?: string;
 }
+
+export interface IPositionData {
+    name: string;
+    description: string;
+    objectPosition: {
+        top?: string;
+        bottom?: string;
+        left?: string;
+        right?: string;
+    };
+    referencePosition: {
+        top?: string;
+        bottom?: string;
+        left?: string;
+        right?: string;
+    };
+}

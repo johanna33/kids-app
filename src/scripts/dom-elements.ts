@@ -7,3 +7,4 @@ export const alphabetContainer = document.querySelector('.alphabet-container') a
 export const numbersContainer = document.querySelector('.numbers-container') as HTMLElement;
 export const colorsContainer = document.querySelector('.colors-container') as HTMLElement;
 export const shapesContainer = document.querySelector('.shapes-container') as HTMLElement;
+export const positionsContainer = document.querySelector('.positions-container') as HTMLElement;

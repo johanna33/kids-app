@@ -1,4 +1,4 @@
-import { IColorData, ILetterData, INumberData, IShapeData } from "./interface";
+import { IColorData, ILetterData, INumberData, IPositionData, IShapeData } from "./interface";
 
 /* Contains all the data for the sections */
 
@@ -89,5 +89,140 @@ export const shapesData: IShapeData[] = [
     { 
         name: 'Heart', 
         svgPath: '<svg width="80" height="80" viewBox="0 0 80 80"><path d="M40,70 C40,70 10,50 10,30 C10,20 20,10 30,10 C35,10 40,15 40,15 C40,15 45,10 50,10 C60,10 70,20 70,30 C70,50 40,70 40,70 Z" fill="#F06292" /></svg>' 
+    },
+    { 
+        name: 'Cross', 
+        svgPath: '<svg width="80" height="80" viewBox="0 0 80 80"><rect x="30" y="10" width="20" height="60" fill="#9C27B0" /><rect x="10" y="30" width="60" height="20" fill="#9C27B0" /></svg>' 
+    }
+];
+
+export const positionsData: IPositionData[] = [
+    {
+        name: "Above",
+        description: "The ball is above the box",
+        objectPosition: {
+            top: "20%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "60%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        }
+    },
+    {
+        name: "Below",
+        description: "The ball is below the box",
+        objectPosition: {
+            top: "60%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "20%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        }
+    },
+    {
+        name: "Left",
+        description: "The ball is to the left of the box",
+        objectPosition: {
+            top: "40%",
+            left: "20%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "40%",
+            left: "60%",
+            right: "auto",
+            bottom: "auto"
+        }
+    },
+    {
+        name: "Right",
+        description: "The ball is to the right of the box",
+        objectPosition: {
+            top: "40%",
+            left: "60%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "40%",
+            left: "20%",
+            right: "auto",
+            bottom: "auto"
+        }
+    },
+    {
+        name: "Inside",
+        description: "The ball is inside the box",
+        objectPosition: {
+            top: "40%",
+            left: "40%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "30%",
+            left: "30%",
+            right: "auto",
+            bottom: "auto"
+        }
+    },
+    {
+        name: "Outside",
+        description: "The ball is outside the box",
+        objectPosition: {
+            top: "20%",
+            left: "20%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "40%",
+            left: "40%",
+            right: "auto",
+            bottom: "auto"
+        }
+    },
+    {
+        name: "Between",
+        description: "The ball is between the boxes",
+        objectPosition: {
+            top: "40%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "40%",
+            left: "20%",
+            right: "auto",
+            bottom: "auto"
+        }
+    },
+    {
+        name: "In front",
+        description: "The ball is in front of the box",
+        objectPosition: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "40%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        }
     }
 ];
