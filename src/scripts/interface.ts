@@ -43,3 +43,10 @@ export interface IPositionData {
         right?: string;
     };
 }
+
+export interface IEmotionData {
+    name: string;
+    emoji: string;
+    description: string;
+    color: string;
+}

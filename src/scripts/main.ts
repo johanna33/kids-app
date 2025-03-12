@@ -1,11 +1,11 @@
 import { contentSections, homeButton, navButtons, welcomeScreen } from "./dom-elements";
 import { initAlphabet } from "./sections/alphabet";
 import { initColors } from "./sections/colors";
+import { initEmotions } from "./sections/emotions";
 import { initNumbers } from "./sections/numbers";
+import { initPositions } from "./sections/positions";
 import { initShapes } from "./sections/shapes";
 import { playSound } from "./utils";
-import { initPositions } from "./sections/positions";
-
 
 /** Initialize the app */
 function initApp(): void {
@@ -30,6 +30,7 @@ function initApp(): void {
     initColors();
     initShapes();
     initPositions();
+    initEmotions();
 
     // Add mascot interaction - the owl
     const mascot = document.getElementById('mascot');

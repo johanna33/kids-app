@@ -1,4 +1,4 @@
-import { IColorData, ILetterData, INumberData, IPositionData, IShapeData } from "./interface";
+import { IColorData, IEmotionData, ILetterData, INumberData, IPositionData, IShapeData } from "./interface";
 
 /* Contains all the data for the sections */
 
@@ -224,5 +224,68 @@ export const positionsData: IPositionData[] = [
             right: "auto",
             bottom: "auto"
         }
+    }
+];
+
+export const emotionsData: IEmotionData[] = [
+    {
+        name: "Happy",
+        emoji: "😊",
+        description: "Feeling joy and pleasure",
+        color: "#FFD54F"
+    },
+    {
+        name: "Sad",
+        emoji: "😢",
+        description: "Feeling unhappy or down",
+        color: "#90CAF9"
+    },
+    {
+        name: "Angry",
+        emoji: "😠",
+        description: "Feeling mad or upset",
+        color: "#EF5350"
+    },
+    {
+        name: "Surprised",
+        emoji: "😲",
+        description: "Feeling amazed or shocked",
+        color: "#81C784"
+    },
+    {
+        name: "Scared",
+        emoji: "😨",
+        description: "Feeling afraid or worried",
+        color: "#CE93D8"
+    },
+    {
+        name: "Sleepy",
+        emoji: "😴",
+        description: "Feeling tired and drowsy",
+        color: "#B39DDB"
+    },
+    {
+        name: "Excited",
+        emoji: "🤩",
+        description: "Feeling very happy and eager",
+        color: "#FFAB40"
+    },
+    {
+        name: "Confused",
+        emoji: "🤔",
+        description: "Feeling puzzled or unsure",
+        color: "#9E9E9E"
+    },
+    {
+        name: "Shy",
+        emoji: "😳",
+        description: "Feeling timid or nervous",
+        color: "#F48FB1"
+    },
+    {
+        name: "Silly",
+        emoji: "🤪",
+        description: "Feeling playful and goofy",
+        color: "#AED581"
     }
 ];

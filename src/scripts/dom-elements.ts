@@ -8,3 +8,4 @@ export const numbersContainer = document.querySelector('.numbers-container') as 
 export const colorsContainer = document.querySelector('.colors-container') as HTMLElement;
 export const shapesContainer = document.querySelector('.shapes-container') as HTMLElement;
 export const positionsContainer = document.querySelector('.positions-container') as HTMLElement;
+export const emotionsContainer = document.querySelector('.emotions-container') as HTMLElement;
