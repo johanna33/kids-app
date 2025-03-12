@@ -50,3 +50,12 @@ export interface IEmotionData {
     description: string;
     color: string;
 }
+
+export interface IBodyPartData {
+    name: string;
+    description: string;
+    emoji: string;
+    color: string;
+    function: string;
+    image?: string;
+}

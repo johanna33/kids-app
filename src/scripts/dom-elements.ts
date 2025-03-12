@@ -9,3 +9,4 @@ export const colorsContainer = document.querySelector('.colors-container') as HT
 export const shapesContainer = document.querySelector('.shapes-container') as HTMLElement;
 export const positionsContainer = document.querySelector('.positions-container') as HTMLElement;
 export const emotionsContainer = document.querySelector('.emotions-container') as HTMLElement;
+export const bodyPartsContainer = document.querySelector('.bodyParts-container') as HTMLElement;

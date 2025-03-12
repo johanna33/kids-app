@@ -1,4 +1,4 @@
-import { IColorData, IEmotionData, ILetterData, INumberData, IPositionData, IShapeData } from "./interface";
+import { IColorData, IEmotionData, ILetterData, INumberData, IPositionData, IShapeData, IBodyPartData } from "./interface";
 
 /* Contains all the data for the sections */
 
@@ -287,5 +287,92 @@ export const emotionsData: IEmotionData[] = [
         emoji: "🤪",
         description: "Feeling playful and goofy",
         color: "#AED581"
+    }
+];
+
+export const bodyPartsData: IBodyPartData[] = [
+    {
+        name: "Head",
+        description: "The top part of your body",
+        emoji: "👤",
+        color: "#FFB74D",
+        function: "Helps you think and see"
+    },
+    {
+        name: "Eyes",
+        description: "Windows to the world",
+        emoji: "👀",
+        color: "#81C784",
+        function: "Help you see everything"
+    },
+    {
+        name: "Nose",
+        description: "In the middle of your face",
+        emoji: "👃",
+        color: "#FF8A65",
+        function: "Helps you smell"
+    },
+    {
+        name: "Mouth",
+        description: "Your eating and talking tool",
+        emoji: "👄",
+        color: "#F06292",
+        function: "Helps you eat and speak"
+    },
+    {
+        name: "Ears",
+        description: "On the sides of your head",
+        emoji: "👂",
+        color: "#9575CD",
+        function: "Help you hear sounds"
+    },
+    {
+        name: "Arms",
+        description: "Your reaching tools",
+        emoji: "💪",
+        color: "#4FC3F7",
+        function: "Help you grab and hug"
+    },
+    {
+        name: "Hands",
+        description: "At the end of your arms",
+        emoji: "🤚",
+        color: "#FFB74D",
+        function: "Help you hold things"
+    },
+    {
+        name: "Legs",
+        description: "Your standing supports",
+        emoji: "🦵",
+        color: "#AED581",
+        function: "Help you walk and run"
+    },
+    {
+        name: "Feet",
+        description: "At the end of your legs",
+        emoji: "🦶",
+        color: "#FF8A65",
+        function: "Help you walk and balance"
+    },
+    {
+        name: "Tummy",
+        description: "In the middle of your body",
+        emoji: "🫃",
+        color: "#4DB6AC",
+        function: "Where food goes"
+    },
+    {
+        name: "Back",
+        description: "Behind your tummy",
+        emoji: "👤",
+        color: "#9575CD",
+        function: "Helps you stand straight"
+    },
+    {
+        name: "Fingers",
+        description: "On your hands",
+        emoji: "👆",
+        color: "#FFB74D",
+        function: "Help you pick up small things"
     }
 ];
