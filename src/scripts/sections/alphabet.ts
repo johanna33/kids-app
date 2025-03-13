@@ -1,6 +1,6 @@
-import { alphabetData } from "../data-content";
-import { alphabetContainer } from "../dom-elements";
-import { speakText } from "../utils";
+import { alphabetData } from "../common/data-content";
+import { alphabetContainer } from "../core/dom-elements";
+import { speakText } from "../common/utils";
 
 export function initAlphabet(): void {
     alphabetContainer.innerHTML = '';

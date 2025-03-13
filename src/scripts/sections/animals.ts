@@ -1,6 +1,6 @@
-import { animalsData } from '../data-content';
-import { animalsContainer, getContainer } from '../dom-elements';
-import { playSound, speakText } from '../utils';
+import { animalsData } from "../common/data-content";
+import { animalsContainer, getContainer } from '../core/dom-elements';
+import { playSound, speakText } from '../common/utils';
 
 
 

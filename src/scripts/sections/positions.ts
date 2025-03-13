@@ -1,6 +1,6 @@
-import { positionsData } from '../data-content';
-import { positionsContainer } from '../dom-elements';
-import { speakText } from '../utils';
+import { positionsData } from "../common/data-content";
+import { positionsContainer } from '../core/dom-elements';
+import { speakText } from '../common/utils';
 
 export function initPositions(): void {
     positionsContainer.innerHTML = '';

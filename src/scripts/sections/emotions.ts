@@ -1,6 +1,6 @@
-import { emotionsData } from '../data-content';
-import { emotionsContainer } from '../dom-elements';
-import { speakText } from '../utils';
+import { emotionsData } from "../common/data-content";
+import { emotionsContainer } from '../core/dom-elements';
+import { speakText } from '../common/utils';
 
 export function initEmotions(): void {
     emotionsContainer.innerHTML = '';

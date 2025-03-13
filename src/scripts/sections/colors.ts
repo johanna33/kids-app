@@ -1,6 +1,6 @@
-import { colorsData } from "../data-content";
-import { colorsContainer } from "../dom-elements";
-import { speakText } from "../utils";
+import { colorsData } from "../common/data-content";
+import { colorsContainer } from "../core/dom-elements";
+import { speakText } from "../common/utils";
 
 export function initColors(): void {
     colorsContainer.innerHTML = '';

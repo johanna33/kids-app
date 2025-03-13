@@ -1,5 +1,5 @@
-import { bodyPartsData } from '../data-content';
-import { speakText } from '../utils';
+import { bodyPartsData } from "../common/data-content";
+import { speakText } from '../common/utils';
 
 export function initBodyParts(): void {
     console.log("Initializing body parts section");

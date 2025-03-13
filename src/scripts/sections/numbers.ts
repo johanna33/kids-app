@@ -1,6 +1,6 @@
-import { numbersData } from "../data-content";
-import { numbersContainer } from "../dom-elements";
-import { showCountingAnimation, speakText } from "../utils";
+import { numbersData } from "../common/data-content";
+import { numbersContainer } from "../core/dom-elements";
+import { showCountingAnimation, speakText } from "../common/utils";
 
 export function initNumbers(): void {
     numbersContainer.innerHTML = '';
