@@ -1,4 +1,4 @@
-import { IColorData, IEmotionData, ILetterData, INumberData, IPositionData, IShapeData, IBodyPartData } from "./interface";
+import { IColorData, IEmotionData, ILetterData, INumberData, IPositionData, IShapeData, IBodyPartData, IAnimalData } from "./interface";
 
 /* Contains all the data for the sections */
 
@@ -406,5 +406,120 @@ export const bodyPartsData: IBodyPartData[] = [
         emoji: "👆",
         color: "#FFB74D",
         function: "Help you pick up small things"
+    }
+];
+
+export const animalsData: IAnimalData[] = [
+    {
+        name: "Lion",
+        emoji: "🦁",
+        fact: "The lion is called the king of the jungle",
+        category: "wild",
+        color: "#FFA000"
+    },
+    {
+        name: "Elephant",
+        emoji: "🐘",
+        fact: "Elephants are the largest land animals",
+        category: "wild",
+        color: "#9E9E9E"
+    },
+    {
+        name: "Giraffe",
+        emoji: "🦒",
+        fact: "Giraffes have very long necks",
+        category: "wild",
+        color: "#FFC107"
+    },
+    {
+        name: "Monkey",
+        emoji: "🐒",
+        fact: "Monkeys are very playful and smart",
+        category: "wild",
+        color: "#795548"
+    },
+    {
+        name: "Dog",
+        emoji: "🐕",
+        fact: "Dogs are loyal and friendly pets",
+        category: "pet",
+        color: "#8D6E63"
+    },
+    {
+        name: "Cat",
+        emoji: "🐈",
+        fact: "Cats like to purr when they're happy",
+        category: "pet",
+        color: "#FF9800"
+    },
+    {
+        name: "Fish",
+        emoji: "🐠",
+        fact: "Fish breathe underwater using gills",
+        category: "sea",
+        color: "#29B6F6"
+    },
+    {
+        name: "Turtle",
+        emoji: "🐢",
+        fact: "Turtles carry their homes on their backs",
+        category: "sea",
+        color: "#4CAF50"
+    },
+    {
+        name: "Cow",
+        emoji: "🐄",
+        fact: "Cows give us milk to drink",
+        category: "farm",
+        color: "#BDBDBD"
+    },
+    {
+        name: "Pig",
+        emoji: "🐖",
+        fact: "Pigs are very clean and smart animals",
+        category: "farm",
+        color: "#F48FB1"
+    },
+    {
+        name: "Chicken",
+        emoji: "🐔",
+        fact: "Chickens lay eggs that we can eat",
+        category: "farm",
+        color: "#FFEB3B"
+    },
+    {
+        name: "Horse",
+        emoji: "🐎",
+        fact: "Horses can run very fast",
+        category: "farm",
+        color: "#8D6E63"
+    },
+    {
+        name: "Butterfly",
+        emoji: "🦋",
+        fact: "Butterflies start as caterpillars",
+        category: "insect",
+        color: "#AB47BC"
+    },
+    {
+        name: "Bee",
+        emoji: "🐝",
+        fact: "Bees make honey and help flowers grow",
+        category: "insect",
+        color: "#FFC107"
+    },
+    {
+        name: "Penguin",
+        emoji: "🐧",
+        fact: "Penguins can't fly but they swim very well",
+        category: "bird",
+        color: "#212121"
+    },
+    {
+        name: "Owl",
+        emoji: "🦉",
+        fact: "Owls can turn their heads almost all the way around",
+        category: "bird",
+        color: "#795548"
     }
 ];

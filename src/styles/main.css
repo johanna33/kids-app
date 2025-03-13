@@ -845,3 +845,202 @@ footer {
         font-size: 0.8rem;
     }
 }
+
+/* Animals Section */
+.animals-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.animal-card {
+    width: 200px;
+    height: 240px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+.animal-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.animal-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 10px 0;
+}
+
+.animal-emoji {
+    font-size: 80px;
+    margin: 10px 0;
+}
+
+.animal-name {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.animal-fact {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 10px;
+    color: var(--text-color);
+}
+
+.animal-sound-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: transform 0.2s;
+}
+
+.animal-sound-button:hover {
+    transform: scale(1.1);
+}
+
+/* Animation for animal cards */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animal-card.active .animal-image,
+.animal-card.active .animal-emoji {
+    animation: bounce 0.5s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .animal-card {
+        width: 170px;
+        height: 210px;
+    }
+    
+    .animal-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .animal-emoji {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .animal-card {
+        width: 150px;
+        height: 190px;
+    }
+    
+    .animal-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .animal-emoji {
+        font-size: 50px;
+    }
+    
+    .animal-name {
+        font-size: 1.1rem;
+    }
+    
+    .animal-fact {
+        font-size: 0.9rem;
+    }
+}
+
+/* Add this to your existing CSS */
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.category-button {
+    background-color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 8px 15px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.category-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.animal-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .category-button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-container {
+        gap: 5px;
+    }
+    
+    .category-button {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Debugging - handle the case when no animals are found */
+/* .no-animals-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: 30px 0;
+} */

@@ -59,3 +59,13 @@ export interface IBodyPartData {
     function: string;
     image?: string;
 }
+
+export interface IAnimalData {
+    name: string;
+    emoji: string;
+    image?: string;
+    fact: string;
+    sound?: string;
+    category: 'farm' | 'wild' | 'pet' | 'sea' | 'insect' | 'bird';
+    color: string;
+}

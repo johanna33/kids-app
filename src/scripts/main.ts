@@ -7,6 +7,7 @@ import { initPositions } from "./sections/positions";
 import { initShapes } from "./sections/shapes";
 import { playSound } from "./utils";
 import { initBodyParts } from "./sections/bodyParts";
+import { initAnimals } from "./sections/animals";
 
 /** Initialize the app */
 function initApp(): void {
@@ -33,6 +34,7 @@ function initApp(): void {
     initPositions();
     initEmotions();
     initBodyParts();
+    initAnimals();
 
     // Add mascot interaction - the owl
     const mascot = document.getElementById('mascot');
