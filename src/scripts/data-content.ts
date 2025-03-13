@@ -224,6 +224,38 @@ export const positionsData: IPositionData[] = [
             right: "auto",
             bottom: "auto"
         }
+    },
+    {
+        name: "Open",
+        description: "The box is open",
+        objectPosition: {
+            top: "30%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        }
+    },
+    {
+        name: "Close",
+        description: "The box is closed",
+        objectPosition: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        },
+        referencePosition: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto"
+        }
     }
 ];
 

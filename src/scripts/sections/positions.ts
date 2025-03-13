@@ -8,6 +8,7 @@ export function initPositions(): void {
     positionsData.forEach(item => {
         const positionCard = document.createElement('div');
         positionCard.className = 'position-card';
+        positionCard.setAttribute('data-position', item.name);
         positionCard.title = item.description;
         
         const positionDisplay = document.createElement('div');
@@ -16,6 +17,7 @@ export function initPositions(): void {
         // Create the reference object (box)
         const referenceObject = document.createElement('div');
         referenceObject.className = 'position-reference';
+        referenceObject.setAttribute('data-position', item.name);
         Object.assign(referenceObject.style, {
             top: item.referencePosition.top || 'auto',
             left: item.referencePosition.left || 'auto',
@@ -27,6 +29,7 @@ export function initPositions(): void {
         // Create the main object (ball)
         const mainObject = document.createElement('div');
         mainObject.className = 'position-object';
+        mainObject.setAttribute('data-position', item.name);
         Object.assign(mainObject.style, {
             top: item.objectPosition.top || 'auto',
             left: item.objectPosition.left || 'auto',
