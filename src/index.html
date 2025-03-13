@@ -3,114 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive learning app for preschoolers covering alphabet, numbers, colors, shapes, and more">
+    <meta name="theme-color" content="#FF9E80">
     <title>Preschool Learning App</title>
-    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css">
+    <!-- <link rel="icon" href="./assets/favicon.ico" type="image/x-icon"> -->
 </head>
 <body>
     <div class="container">
         <header>
-            <button class="home-button" data-section="welcome">
-                <span>🏠</span>
+            <button class="home-button" data-section="welcome" aria-label="Go to home screen">
+                <span aria-hidden="true">🏠</span>
                 <span>Home</span>
             </button>
-            <h1>Preschool Learning Fun yay!</h1>
+            <h1>Preschool Learning Fun!</h1>
             <div class="character">
                 <img src="./assets/owl.svg" alt="Owl Teacher" id="mascot">
             </div>
         </header>
         
-        <nav id="main-nav">
-            <button class="nav-button" data-section="alphabet">
-                <span>ABC</span>
+        <nav id="main-nav" aria-label="Learning categories">
+            <button class="nav-button" data-section="alphabet" aria-label="Learn alphabet">
+                <span aria-hidden="true">ABC</span>
                 <span>Alphabet</span>
             </button>
-            <button class="nav-button" data-section="numbers">
-                <span>123</span>
+            <button class="nav-button" data-section="numbers" aria-label="Learn numbers">
+                <span aria-hidden="true">123</span>
                 <span>Numbers</span>
             </button>
-            <button class="nav-button" data-section="colors">
-                <span>🎨</span>
+            <button class="nav-button" data-section="colors" aria-label="Learn colors">
+                <span aria-hidden="true">🎨</span>
                 <span>Colors</span>
             </button>
-            <button class="nav-button" data-section="shapes">
-                <span>◯△□</span>
+            <button class="nav-button" data-section="shapes" aria-label="Learn shapes">
+                <span aria-hidden="true">◯△□</span>
                 <span>Shapes</span>
             </button>
-            <button class="nav-button" data-section="positions">
-                <span>↕️↔️</span>
+            <button class="nav-button" data-section="positions" aria-label="Learn positions">
+                <span aria-hidden="true">↕️↔️</span>
                 <span>Positions</span>
             </button>
-            <button class="nav-button" data-section="emotions">
-                <span>😊</span>
+            <button class="nav-button" data-section="emotions" aria-label="Learn emotions">
+                <span aria-hidden="true">😊</span>
                 <span>Emotions</span>
             </button>
-            <button class="nav-button" data-section="bodyParts">
-                <span>👤</span>
+            <button class="nav-button" data-section="bodyParts" aria-label="Learn body parts">
+                <span aria-hidden="true">👤</span>
                 <span>Body Parts</span>
             </button>
-            <button class="nav-button" data-section="animals">
-                <span>🦁</span>
+            <button class="nav-button" data-section="animals" aria-label="Learn animals">
+                <span aria-hidden="true">🦁</span>
                 <span>Animals</span>
             </button>
         </nav>
         
         <main id="content-area">
             <!-- Content will be loaded dynamically -->
-            <div class="welcome-screen active">
-                <h2>Welcome to Learning Fun!</h2>
+            <section class="welcome-screen active" aria-labelledby="welcome-heading">
+                <h2 id="welcome-heading">Welcome to Learning Fun!</h2>
                 <p>Click on a button above to start learning</p>
                 <div class="mascot-welcome">
                     <img src="./assets/welcome.svg" alt="Welcome" class="welcome-image">
                 </div>
-            </div>
+            </section>
             
-            <div class="section-content" id="alphabet-section">
-                <h2>Let's Learn the Alphabet!</h2>
+            <section class="section-content" id="alphabet-section" aria-labelledby="alphabet-heading">
+                <h2 id="alphabet-heading">Let's Learn the Alphabet!</h2>
                 <div class="alphabet-container"></div>
-            </div>
+            </section>
             
-            <div class="section-content" id="numbers-section">
-                <h2>Let's Count Together!</h2>
+            <section class="section-content" id="numbers-section" aria-labelledby="numbers-heading">
+                <h2 id="numbers-heading">Let's Count Together!</h2>
                 <div class="numbers-container"></div>
-            </div>
+            </section>
             
-            <div class="section-content" id="colors-section">
-                <h2>Colorful World!</h2>
+            <section class="section-content" id="colors-section" aria-labelledby="colors-heading">
+                <h2 id="colors-heading">Colorful World!</h2>
                 <div class="colors-container"></div>
-            </div>
+            </section>
             
-            <div class="section-content" id="shapes-section">
-                <h2>Fun with Shapes!</h2>
+            <section class="section-content" id="shapes-section" aria-labelledby="shapes-heading">
+                <h2 id="shapes-heading">Fun with Shapes!</h2>
                 <div class="shapes-container"></div>
-            </div>
+            </section>
             
-            <div class="section-content" id="positions-section">
-                <h2>Let's Learn Positions!</h2>
+            <section class="section-content" id="positions-section" aria-labelledby="positions-heading">
+                <h2 id="positions-heading">Let's Learn Positions!</h2>
                 <div class="positions-container"></div>
-            </div>
+            </section>
             
-            <div class="section-content" id="emotions-section">
-                <h2>Let's Learn About Emotions!</h2>
+            <section class="section-content" id="emotions-section" aria-labelledby="emotions-heading">
+                <h2 id="emotions-heading">Let's Learn About Emotions!</h2>
                 <div class="emotions-container"></div>
-            </div>
+            </section>
             
-            <div class="section-content" id="bodyParts-section">
-                <h2>Let's Learn About Body Parts!</h2>
+            <section class="section-content" id="bodyParts-section" aria-labelledby="bodyParts-heading">
+                <h2 id="bodyParts-heading">Let's Learn About Body Parts!</h2>
                 <div class="bodyParts-container"></div>
-            </div>
+            </section>
 
-            <div class="section-content" id="animals-section">
-                <h2>Let's Learn About Animals!</h2>
+            <section class="section-content" id="animals-section" aria-labelledby="animals-heading">
+                <h2 id="animals-heading">Let's Learn About Animals!</h2>
                 <div class="animals-container"></div>
-            </div>
+            </section>
         </main>
         
         <footer>
-            <p>Made with ❤️ for little learners</p>
+            <p>Made with <span aria-hidden="true">❤️</span><span class="sr-only">love</span> for little learners</p>
         </footer>
     </div>
     
-    <script type="module" src="./scripts/main.ts"></script>
+    <script type="module" src="./scripts/main.ts" defer></script>
 </body>
 </html> 
