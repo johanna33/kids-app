@@ -1,6 +1,6 @@
-import { shapesData } from "../data-content";
-import { shapesContainer } from "../dom-elements";
-import { speakText } from "../utils";
+import { shapesData } from "../common/data-content";
+import { shapesContainer } from "../core/dom-elements";
+import { speakText } from "../common/utils";
 
 export function initShapes(): void {
     shapesContainer.innerHTML = '';

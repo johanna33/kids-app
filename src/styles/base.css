@@ -1,0 +1,80 @@
+/* Base Styles for Preschool Learning App */
+
+/* CSS Variables */
+:root {
+    --primary-color: #FF9E80;
+    --secondary-color: #64B5F6;
+    --accent-color: #FFEB3B;
+    --background-color: #F5F5F5;
+    --text-color: #424242;
+    --success-color: #81C784;
+    --error-color: #E57373;
+    --border-radius: 15px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+}
+
+/* CSS Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base Typography */
+body {
+    font-family: 'Comic Neue', cursive;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Accessibility utility class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+} 
