@@ -14,7 +14,9 @@ export const emotionsContainer = document.querySelector('.emotions-container') a
 export const bodyPartsContainer = document.querySelector('.bodyParts-container') as HTMLElement;
 export const animalsContainer = document.querySelector('.animals-container') as HTMLElement;
 
-// Get container elements when needed
+/*
+* Get container elements when needed
+*/
 export function getContainer(containerClass: string): HTMLElement {
     const container = document.querySelector(`.${containerClass}`) as HTMLElement;
     if (!container) {

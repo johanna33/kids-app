@@ -8,7 +8,8 @@
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
     "clean": "rm -rf .parcel-cache dist node_modules",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startLogs": "parcel src/index.html --log-level verbose"
   },
   "keywords": [
     "preschool",

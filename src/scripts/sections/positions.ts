@@ -1,61 +1,122 @@
 import { positionsData } from "../common/data-content";
-import { positionsContainer } from '../core/dom-elements';
-import { speakText } from '../common/utils';
+import { getContainer } from "../core/dom-elements";
+import { speakText } from "../common/utils";
+import { DOMUtils } from "../core/dom-utils";
 
-export function initPositions(): void {
-    positionsContainer.innerHTML = '';
+// Track event listeners for cleanup
+const eventListeners: Array<{ element: HTMLElement, type: string, listener: EventListener }> = [];
+
+/**
+ * Initialize the positions section
+ */
+export function initialize(): void {
+    renderPositionsSection();
+}
+
+/**
+ * Clean up resources when section is hidden
+ */
+export function cleanup(): void {
+    eventListeners.forEach(({ element, type, listener }) => {
+        element.removeEventListener(type, listener);
+    });
+    eventListeners.length = 0;
+}
+
+/**
+ * Render the positions section
+ */
+function renderPositionsSection(): void {
+    const positionsContainer = getContainer('positions-container');
     
+    if (!positionsContainer) {
+        return;
+    }
+    
+    // Clear the container efficiently
+    DOMUtils.clearContainer(positionsContainer);
+    
+    // Use document fragment for better performance
+    const fragment = document.createDocumentFragment();
+    
+    // Create position cards
     positionsData.forEach(item => {
-        const positionCard = document.createElement('div');
-        positionCard.className = 'position-card';
-        positionCard.setAttribute('data-position', item.name);
-        positionCard.title = item.description;
-        
-        const positionDisplay = document.createElement('div');
-        positionDisplay.className = 'position-display';
-        
-        // Create the reference object (box)
-        const referenceObject = document.createElement('div');
-        referenceObject.className = 'position-reference';
-        referenceObject.setAttribute('data-position', item.name);
-        Object.assign(referenceObject.style, {
-            top: item.referencePosition.top || 'auto',
-            left: item.referencePosition.left || 'auto',
-            right: item.referencePosition.right || 'auto',
-            bottom: item.referencePosition.bottom || 'auto',
-            transform: 'translate(-50%, -50%)'
+        const positionCard = DOMUtils.createElement('div', {
+            className: 'position-card',
+            attributes: {
+                'title': item.name,
+                'aria-label': `${item.name}: ${item.description}`,
+                'tabindex': '0'
+            }
         });
         
-        // Create the main object (ball)
-        const mainObject = document.createElement('div');
-        mainObject.className = 'position-object';
-        mainObject.setAttribute('data-position', item.name);
-        Object.assign(mainObject.style, {
-            top: item.objectPosition.top || 'auto',
-            left: item.objectPosition.left || 'auto',
-            right: item.objectPosition.right || 'auto',
-            bottom: item.objectPosition.bottom || 'auto',
-            transform: 'translate(-50%, -50%)'
+        const positionDisplay = DOMUtils.createElement('div', {
+            className: 'position-display'
         });
         
-        // Create the position name
-        const positionName = document.createElement('div');
-        positionName.className = 'position-name';
-        positionName.textContent = item.name;
+        // Create reference object (like a box)
+        const referenceObject = DOMUtils.createElement('div', {
+            className: 'position-reference'
+        });
         
-        // Add elements to the card
+        // Apply reference position styles
+        if (item.referencePosition) {
+            Object.entries(item.referencePosition).forEach(([key, value]) => {
+                (referenceObject.style as any)[key] = value as string;
+            });
+        }
+        
+        // Create position object (like a ball)
+        const positionObject = DOMUtils.createElement('div', {
+            className: 'position-object'
+        });
+        
+        // Apply object position styles
+        if (item.objectPosition) {
+            Object.entries(item.objectPosition).forEach(([key, value]) => {
+                (positionObject.style as any)[key] = value as string;
+            });
+        }
+        
+        // Add objects to display
         positionDisplay.appendChild(referenceObject);
-        positionDisplay.appendChild(mainObject);
+        positionDisplay.appendChild(positionObject);
+        
+        const positionName = DOMUtils.createElement('div', {
+            className: 'position-name',
+            text: item.name
+        });
+        
         positionCard.appendChild(positionDisplay);
         positionCard.appendChild(positionName);
         
-        // Add click event
-        positionCard.addEventListener('click', () => {
-            speakText(item.description);
+        // Add event listener and track it for cleanup
+        const clickListener = () => {
+            speakText(`${item.name}: ${item.description}`);
             positionCard.classList.add('active');
             setTimeout(() => positionCard.classList.remove('active'), 1000);
-        });
+        };
         
-        positionsContainer.appendChild(positionCard);
+        positionCard.addEventListener('click', clickListener);
+        eventListeners.push({ element: positionCard, type: 'click', listener: clickListener });
+        
+        // Add keyboard support
+        const keydownListener = (e: Event) => {
+            const keyEvent = e as KeyboardEvent;
+            if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+                e.preventDefault();
+                clickListener();
+            }
+        };
+        
+        positionCard.addEventListener('keydown', keydownListener);
+        eventListeners.push({ element: positionCard, type: 'keydown', listener: keydownListener });
+        
+        fragment.appendChild(positionCard);
     });
+    
+    positionsContainer.appendChild(fragment);
+    
+    console.log('Rendered', positionsData.length, 'position cards');
 }
+

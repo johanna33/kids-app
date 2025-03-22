@@ -1,79 +1,122 @@
 import { bodyPartsData } from "../common/data-content";
-import { speakText } from '../common/utils';
+import { getContainer } from "../core/dom-elements";
+import { speakText } from "../common/utils";
+import { DOMUtils } from "../core/dom-utils";
+import { ImageLoader } from "../core/image-loader";
 
-export function initBodyParts(): void {
-    console.log("Initializing body parts section");
+// Track event listeners for cleanup
+const eventListeners: Array<{ element: HTMLElement, type: string, listener: EventListener }> = [];
+
+/**
+ * Initialize the body parts section
+ */
+export function initialize(): void {
+    renderBodyPartsSection();
+}
+
+/**
+ * Clean up resources when section is hidden
+ */
+export function cleanup(): void {
+    eventListeners.forEach(({ element, type, listener }) => {
+        element.removeEventListener(type, listener);
+    });
+    eventListeners.length = 0;
+}
+
+/**
+ * Render the body parts section
+ */
+function renderBodyPartsSection(): void {
+    const bodyPartsContainer = getContainer('bodyParts-container');
     
-    // Find the container directly when the function is called
-    const bodyPartsSection = document.getElementById('bodyParts-section');
-    
-    if (!bodyPartsSection) {
-        console.error('Body parts section not found in the DOM');
+    if (!bodyPartsContainer) {
         return;
     }
     
-    // Find or create the body parts container
-    let bodyPartsContainer = bodyPartsSection.querySelector('.bodyParts-container');
+    // Clear the container efficiently
+    DOMUtils.clearContainer(bodyPartsContainer);
     
-    if (!bodyPartsContainer) {
-        console.log('Creating new body parts container');
-        bodyPartsContainer = document.createElement('div');
-        bodyPartsContainer.className = 'bodyParts-container';
-        
-        // Find the h2 element
-        const heading = bodyPartsSection.querySelector('h2');
-        
-        if (heading) {
-            // Insert after the heading
-            heading.insertAdjacentElement('afterend', bodyPartsContainer);
-        } else {
-            // Or just append to the section
-            bodyPartsSection.appendChild(bodyPartsContainer);
-        }
-    }
+    // Get image loader instance
+    const imageLoader = ImageLoader.getInstance();
     
-    // Clear the container
-    bodyPartsContainer.innerHTML = '';
+    // Use document fragment for better performance
+    const fragment = document.createDocumentFragment();
     
-    // Render body part cards
+    // Create body part cards
     bodyPartsData.forEach(item => {
-        const bodyPartCard = document.createElement('div');
-        bodyPartCard.className = 'bodyPart-card';
-        bodyPartCard.style.borderTop = `5px solid ${item.color}`;
+        const bodyPartCard = DOMUtils.createElement('div', {
+            className: 'bodyPart-card',
+            attributes: {
+                'title': `${item.name}: ${item.description}`,
+                'aria-label': `${item.name}: ${item.description}`,
+                'tabindex': '0'
+            }
+        });
         
-        const bodyPartEmoji = document.createElement('div');
-        bodyPartEmoji.className = 'bodyPart-emoji';
-        bodyPartEmoji.textContent = item.emoji;
+        // Use lazy loading for images if available
+        if (item.image) {
+            const bodyPartImage = imageLoader.createLazyImage(
+                item.image,
+                item.name,
+                'bodyPart-image',
+                item.color
+            );
+            bodyPartCard.appendChild(bodyPartImage);
+        } else {
+            const bodyPartEmoji = DOMUtils.createElement('div', {
+                className: 'bodyPart-emoji',
+                text: item.emoji
+            });
+            bodyPartCard.appendChild(bodyPartEmoji);
+        }
         
-        const bodyPartName = document.createElement('div');
-        bodyPartName.className = 'bodyPart-name';
-        bodyPartName.textContent = item.name;
+        const bodyPartName = DOMUtils.createElement('div', {
+            className: 'bodyPart-name',
+            text: item.name
+        });
         bodyPartName.style.backgroundColor = item.color;
         
-        const bodyPartDescription = document.createElement('div');
-        bodyPartDescription.className = 'bodyPart-description';
-        bodyPartDescription.textContent = item.description;
+        const bodyPartDescription = DOMUtils.createElement('div', {
+            className: 'bodyPart-description',
+            text: item.description
+        });
         
-        const bodyPartFunction = document.createElement('div');
-        bodyPartFunction.className = 'bodyPart-function';
-        bodyPartFunction.textContent = item.function;
+        const bodyPartFunction = DOMUtils.createElement('div', {
+            className: 'bodyPart-function',
+            text: item.function
+        });
         
-        bodyPartCard.appendChild(bodyPartEmoji);
         bodyPartCard.appendChild(bodyPartName);
         bodyPartCard.appendChild(bodyPartDescription);
         bodyPartCard.appendChild(bodyPartFunction);
         
-        bodyPartCard.addEventListener('click', () => {
-            // Speak the body part information
-            speakText(`${item.name}. ${item.description}. ${item.function}`);
-            
-            // Add animation class
+        // Add event listener and track it for cleanup
+        const clickListener = () => {
+            speakText(`${item.name}: ${item.description}. ${item.function}`);
             bodyPartCard.classList.add('active');
             setTimeout(() => bodyPartCard.classList.remove('active'), 1000);
-        });
+        };
         
-        bodyPartsContainer.appendChild(bodyPartCard);
+        bodyPartCard.addEventListener('click', clickListener);
+        eventListeners.push({ element: bodyPartCard, type: 'click', listener: clickListener });
+        
+        // Add keyboard support
+        const keydownListener = (e: Event) => {
+            const keyEvent = e as KeyboardEvent;
+            if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+                e.preventDefault();
+                clickListener();
+            }
+        };
+        
+        bodyPartCard.addEventListener('keydown', keydownListener);
+        eventListeners.push({ element: bodyPartCard, type: 'keydown', listener: keydownListener });
+        
+        fragment.appendChild(bodyPartCard);
     });
     
-    console.log('Body parts section initialized with', bodyPartsData.length, 'parts');
-} 
+    bodyPartsContainer.appendChild(fragment);
+    
+    console.log('Rendered', bodyPartsData.length, 'body part cards');
+}
