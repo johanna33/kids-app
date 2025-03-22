@@ -1,20 +1,23 @@
-import { contentSections, homeButton, navButtons, welcomeScreen } from "./dom-elements";
-import { initAlphabet } from "../sections/alphabet";
-import { initColors } from "../sections/colors";
-import { initEmotions } from "../sections/emotions";
-import { initNumbers } from "../sections/numbers";
-import { initPositions } from "../sections/positions";
-import { initShapes } from "../sections/shapes";
-import { playSound } from "../common/utils";
-import { initBodyParts } from "../sections/bodyParts";
-import { initAnimals } from "../sections/animals";
+import { homeButton, navButtons } from "./dom-elements";
+import { SectionManager } from "./section-manager";
+import { AudioLoader } from "./audio-loader";
+import { ImageLoader } from "./image-loader";
 
-/** Initialize the app */
-function initApp(): void {
+/**
+ * Initialize the app
+ */
+async function initApp(): Promise<void> {
+    console.log('Initializing preschool learning app...');
+    
+    // Initialize services
+    const sectionManager = SectionManager.getInstance();
+    const audioLoader = AudioLoader.getInstance();
+    const imageLoader = ImageLoader.getInstance();
+    
     // Add event listener to home button
     if (homeButton) {
         homeButton.addEventListener('click', () => {
-            showSection(undefined);
+            sectionManager.switchSection(undefined);
         });
     }
 
@@ -22,53 +25,48 @@ function initApp(): void {
     navButtons.forEach(button => {
         button.addEventListener('click', () => {
             const section = (button as HTMLElement).dataset.section;
-            showSection(section);
+            if (section) {
+                sectionManager.switchSection(section);
+            }
         });
     });
-
-    // Initialize content sections
-    initAlphabet();
-    initNumbers();
-    initColors();
-    initShapes();
-    initPositions();
-    initEmotions();
-    initBodyParts();
-    initAnimals();
 
     // Add mascot interaction - the owl
     const mascot = document.getElementById('mascot');
     if (mascot) {
         mascot.addEventListener('click', () => {
-            playSound('assets/sounds/welcome.mp3'); //TODO: add the sound file in the path described.
+            // audioLoader.playAudio('assets/sounds/welcome.mp3');
             mascot.classList.add('bounce');
             setTimeout(() => mascot.classList.remove('bounce'), 1000);
         });
     }
-}
 
-/** Show the selected section by buttons */
-function showSection(sectionName: string | undefined): void {
-    // Hide all sections first
-    welcomeScreen.classList.remove('active');
-    contentSections.forEach(section => {
-        section.classList.remove('active');
-    });
+    // Preload common assets
+    // try {
+    //     // Preload welcome screen assets
+    //     await Promise.all([
+    //         imageLoader.preloadImage('./assets/welcome.svg'),
+    //         audioLoader.loadAudio('assets/sounds/welcome.mp3')
+    //     ]);
+    // } catch (error) {
+    //     console.error('Error during app initialization:', error);
+    // }    
 
-    // Show the selected section
-    if (sectionName) {
-        const selectedSection = document.getElementById(`${sectionName}-section`);
-        if (selectedSection) {
-            selectedSection.classList.add('active');
-        }
-    } else {
-        // If no section name is provided, show the welcome screen
-        welcomeScreen.classList.add('active');
-        // Play a welcome sound or animation
-        playSound('assets/sounds/welcome.mp3'); //TODO: add the sound file in the path described.
+    try {
+        // Show welcome screen
+        await sectionManager.switchSection(undefined);
+        
+        // Preload first section (alphabet) in the background
+        // sectionManager.preloadSection('alphabet');
+        
+        console.log('App initialization complete');
+    } catch (error) {
+        console.error('Error during app initialization:', error);
     }
 }
 
-/** Initialize the app when the DOM is loaded */
+/**
+ * Initialize the app when the DOM is loaded
+ */
 document.addEventListener('DOMContentLoaded', initApp);
 

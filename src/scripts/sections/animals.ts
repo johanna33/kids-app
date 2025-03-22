@@ -1,23 +1,47 @@
 import { animalsData } from "../common/data-content";
-import { animalsContainer, getContainer } from '../core/dom-elements';
-import { playSound, speakText } from '../common/utils';
+import { getContainer } from '../core/dom-elements';
+import { AudioLoader } from "../core/audio-loader";
+import { ImageLoader } from "../core/image-loader";
+import { DOMUtils } from "../core/dom-utils";
+import { speakText } from '../common/utils';
 
+// Track event listeners for cleanup
+const eventListeners: Array<{ element: HTMLElement, type: string, listener: EventListener }> = [];
 
+/**
+ * Initialize the animals section
+ */
+export function initialize(): void {
+    renderAnimalsSection();
+}
 
-export function initAnimals(): void {
+/**
+ * Clean up resources when section is hidden
+ */
+export function cleanup(): void {
+    eventListeners.forEach(({ element, type, listener }) => {
+        element.removeEventListener(type, listener);
+    });
+    eventListeners.length = 0;
+}
+
+/**
+ * Render the animals section
+ */
+function renderAnimalsSection(): void {
     const animalsContainer = getContainer('animals-container');
     
     if (!animalsContainer) {
-        console.error('Animals container not found');
         return;
     }
     
-    // Clear the container
-    animalsContainer.innerHTML = '';
+    // Clear the container efficiently
+    DOMUtils.clearContainer(animalsContainer);
     
     // Create category buttons
-    const categoriesContainer = document.createElement('div');
-    categoriesContainer.className = 'categories-container';
+    const categoriesContainer = DOMUtils.createElement('div', {
+        className: 'categories-container'
+    });
     
     const categories = [
         { id: 'all', name: 'All Animals', emoji: '🐾' },
@@ -29,33 +53,45 @@ export function initAnimals(): void {
         { id: 'bird', name: 'Birds', emoji: '🦉' }
     ];
     
-    categories.forEach(category => {
-        const button = document.createElement('button');
-        button.className = 'category-button';
-        button.dataset.category = category.id;
-        button.innerHTML = `${category.emoji} ${category.name}`;
-        
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            document.querySelectorAll('.category-button').forEach(btn => {
-                btn.classList.remove('active');
+    // Use batch operation for better performance
+    DOMUtils.batchOperation(() => {
+        categories.forEach(category => {
+            const button = DOMUtils.createElement('button', {
+                className: 'category-button',
+                attributes: {
+                    'data-category': category.id,
+                    'aria-label': `Show ${category.name} animals`
+                },
+                html: `${category.emoji} ${category.name}`
             });
             
-            // Add active class to clicked button
-            button.classList.add('active');
+            // Add event listener and track it for cleanup
+            const clickListener = () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Filter animals by category
+                filterAnimalsByCategory(category.id);
+            };
             
-            // Filter animals by category
-            filterAnimalsByCategory(category.id);
+            button.addEventListener('click', clickListener);
+            eventListeners.push({ element: button, type: 'click', listener: clickListener });
+            
+            categoriesContainer.appendChild(button);
         });
-        
-        categoriesContainer.appendChild(button);
     });
     
     animalsContainer.appendChild(categoriesContainer);
     
     // Create container for animal cards
-    const animalCardsContainer = document.createElement('div');
-    animalCardsContainer.className = 'animal-cards-container';
+    const animalCardsContainer = DOMUtils.createElement('div', {
+        className: 'animal-cards-container'
+    });
     animalsContainer.appendChild(animalCardsContainer);
     
     // Set "All Animals" as default active category
@@ -67,10 +103,11 @@ export function initAnimals(): void {
     // Show all animals initially
     renderAnimalCards(animalsData);
     
-    // Debug log
-    console.log('Animals section initialized with', animalsData.length, 'animals');
 }
 
+/**
+ * Filter animals by category
+ */
 function filterAnimalsByCategory(categoryId: string): void {
     const filteredAnimals = categoryId === 'all' 
         ? animalsData 
@@ -80,6 +117,9 @@ function filterAnimalsByCategory(categoryId: string): void {
     console.log('Filtered to', filteredAnimals.length, 'animals in category', categoryId);
 }
 
+/**
+ * Render animal cards with performance optimizations
+ */
 function renderAnimalCards(animals: typeof animalsData): void {
     const animalCardsContainer = document.querySelector('.animal-cards-container') as HTMLElement;
     if (!animalCardsContainer) {
@@ -87,55 +127,86 @@ function renderAnimalCards(animals: typeof animalsData): void {
         return;
     }
     
-    animalCardsContainer.innerHTML = '';
+    // Clear container efficiently
+    DOMUtils.clearContainer(animalCardsContainer);
     
     if (animals.length === 0) {
-        const noAnimalsMessage = document.createElement('p');
-        noAnimalsMessage.textContent = 'No animals found in this category';
-        noAnimalsMessage.className = 'no-animals-message';
+        const noAnimalsMessage = DOMUtils.createElement('p', {
+            className: 'no-animals-message',
+            text: 'No animals found in this category'
+        });
         animalCardsContainer.appendChild(noAnimalsMessage);
         return;
     }
     
+    // Get service instances
+    const imageLoader = ImageLoader.getInstance();
+    const audioLoader = AudioLoader.getInstance();
+    
+    // Use document fragment for better performance
+    const fragment = document.createDocumentFragment();
+    
+    // Create animal cards
     animals.forEach(item => {
-        const animalCard = document.createElement('div');
-        animalCard.className = 'animal-card';
+        const animalCard = DOMUtils.createElement('div', {
+            className: 'animal-card',
+            attributes: {
+                'aria-label': item.name,
+                'tabindex': '0'
+            }
+        });
         animalCard.style.borderTop = `5px solid ${item.color}`;
         
-        // Use emoji if no image is provided
+        // Use lazy loading for images
         if (item.image) {
-            const animalImage = document.createElement('img');
-            animalImage.className = 'animal-image';
-            animalImage.src = item.image;
-            animalImage.alt = item.name;
+            const animalImage = imageLoader.createLazyImage(
+                item.image,
+                item.name,
+                'animal-image',
+                item.color
+            );
             animalCard.appendChild(animalImage);
         } else {
-            const animalEmoji = document.createElement('div');
-            animalEmoji.className = 'animal-emoji';
-            animalEmoji.textContent = item.emoji;
+            const animalEmoji = DOMUtils.createElement('div', {
+                className: 'animal-emoji',
+                text: item.emoji
+            });
             animalCard.appendChild(animalEmoji);
         }
         
-        const animalName = document.createElement('div');
-        animalName.className = 'animal-name';
-        animalName.textContent = item.name;
+        const animalName = DOMUtils.createElement('div', {
+            className: 'animal-name',
+            text: item.name
+        });
         animalName.style.backgroundColor = item.color;
         
-        const animalFact = document.createElement('div');
-        animalFact.className = 'animal-fact';
-        animalFact.textContent = item.fact;
+        const animalFact = DOMUtils.createElement('div', {
+            className: 'animal-fact',
+            text: item.fact
+        });
         
         // Add sound button if sound is provided
         if (item.sound) {
-            const soundButton = document.createElement('button');
-            soundButton.className = 'animal-sound-button';
-            soundButton.innerHTML = '🔊';
-            soundButton.title = `Hear ${item.name} sound`;
+            // Preload the sound file
+            audioLoader.loadAudio(item.sound);
             
-            soundButton.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent card click
-                playSound(item.sound as string);
+            const soundButton = DOMUtils.createElement('button', {
+                className: 'animal-sound-button',
+                html: '🔊',
+                attributes: {
+                    'title': `Hear ${item.name} sound`,
+                    'aria-label': `Play ${item.name} sound`
+                }
             });
+            
+            // Add event listener and track it for cleanup
+            const soundClickListener = (e: Event) => {
+                e.stopPropagation(); // Prevent card click
+                audioLoader.playAudio(item.sound as string);
+            };
+            
+            soundButton.addEventListener('click', soundClickListener);
+            eventListeners.push({ element: soundButton, type: 'click', listener: soundClickListener });
             
             animalCard.appendChild(soundButton);
         }
@@ -143,62 +214,36 @@ function renderAnimalCards(animals: typeof animalsData): void {
         animalCard.appendChild(animalName);
         animalCard.appendChild(animalFact);
         
-        animalCard.addEventListener('click', () => {
+        // Add event listener and track it for cleanup
+        const cardClickListener = () => {
             // Speak the animal name and fact
             speakText(`${item.name}. ${item.fact}`);
             
             // Add animation class
             animalCard.classList.add('active');
             setTimeout(() => animalCard.classList.remove('active'), 1000);
-        });
+        };
         
-        animalCardsContainer.appendChild(animalCard);
+        animalCard.addEventListener('click', cardClickListener);
+        eventListeners.push({ element: animalCard, type: 'click', listener: cardClickListener });
+        
+        // Add keyboard support
+        const cardKeydownListener = (e: Event) => {
+            const keyEvent = e as KeyboardEvent;
+            if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+                e.preventDefault();
+                cardClickListener();
+            }
+        };
+        
+        animalCard.addEventListener('keydown', cardKeydownListener);
+        eventListeners.push({ element: animalCard, type: 'keydown', listener: cardKeydownListener });
+        
+        fragment.appendChild(animalCard);
     });
     
+    animalCardsContainer.appendChild(fragment);
+    
     console.log('Rendered', animals.length, 'animal cards');
-} 
-
-/*
-
-export function initAnimals(): void {
-    console.log('Initializing animals section');
-    console.log('Animals data:', animalsData);
-
-    // Get the container when the function is called
-    const animalsContainer = getContainer('animals-container');
-    console.log('Animals container:', animalsContainer);
-    
-    if (!animalsContainer) {
-        console.error('Animals container not found');
-        return;
-    }
-    
-    // Clear the container
-    animalsContainer.innerHTML = '';
-    
-    // Add a simple test element
-    const testElement = document.createElement('div');
-    testElement.textContent = 'Animals section is working!';
-    testElement.style.padding = '20px';
-    testElement.style.backgroundColor = '#f0f0f0';
-    testElement.style.borderRadius = '10px';
-    testElement.style.margin = '20px';
-    testElement.style.textAlign = 'center';
-    
-    animalsContainer.appendChild(testElement);
-    
-    // Add one simple animal card
-    if (animalsData.length > 0) {
-        const animal = animalsData[0];
-        const animalCard = document.createElement('div');
-        animalCard.className = 'animal-card';
-        animalCard.innerHTML = `
-            <div class="animal-emoji">${animal.emoji}</div>
-            <div class="animal-name">${animal.name}</div>
-            <div class="animal-fact">${animal.fact}</div>
-        `;
-        animalsContainer.appendChild(animalCard);
-    }
 }
 
-*/

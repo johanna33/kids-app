@@ -1,4 +1,4 @@
-import { IColorData, IEmotionData, ILetterData, INumberData, IPositionData, IShapeData, IBodyPartData, IAnimalData } from "./interface";
+import { IColorData, IEmotionData, ILetterData, INumberData, IPositionData, IShapeData, IBodyPartData, IAnimalData } from "./data-interface";
 
 /* Contains all the data for the sections */
 

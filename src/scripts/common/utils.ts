@@ -10,12 +10,12 @@ export function speakText(text: string): void {
     }
 }
 
-export function playSound(soundPath: string): void {
-    const audio = new Audio(soundPath);
-    audio.play().catch(error => {
-        console.log('Error playing sound:', error);
-    });
-}
+// export function playSound(soundPath: string): void {
+//     const audio = new Audio(soundPath);
+//     audio.play().catch(error => {
+//         console.log('Error playing sound:', error);
+//     });
+// }
 
 export function showCountingAnimation(count: number): void {
     // Create or get the counting animation container
