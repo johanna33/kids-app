@@ -23,48 +23,48 @@ export class DOMUtils {
         } = {}
     ): HTMLElementTagNameMap[K] {
         const element = document.createElement(tagName);
-        
+
         // Set className if provided
         if (options.className) {
             element.className = options.className;
         }
-        
+
         // Set id if provided
         if (options.id) {
             element.id = options.id;
         }
-        
+
         // Set attributes if provided
         if (options.attributes) {
             Object.entries(options.attributes).forEach(([key, value]) => {
                 element.setAttribute(key, value);
             });
         }
-        
+
         // Set properties if provided
         if (options.properties) {
             Object.entries(options.properties).forEach(([key, value]) => {
                 (element as any)[key] = value;
             });
         }
-        
+
         // Set text content if provided
         if (options.text) {
             element.textContent = options.text;
         }
-        
+
         // Set inner HTML if provided
         if (options.html) {
             element.innerHTML = options.html;
         }
-        
+
         // Add event listeners if provided
         if (options.events) {
             Object.entries(options.events).forEach(([eventName, listener]) => {
                 element.addEventListener(eventName, listener);
             });
         }
-        
+
         // Append children if provided
         if (options.children) {
             options.children.forEach(child => {
@@ -75,7 +75,7 @@ export class DOMUtils {
                 }
             });
         }
-        
+
         return element;
     }
 
@@ -85,10 +85,10 @@ export class DOMUtils {
      */
     public static batchOperation(operation: () => void): void {
         this.deferredOperations.push(operation);
-        
+
         if (!this.isScheduled) {
             this.isScheduled = true;
-            
+
             // Use requestAnimationFrame for visual updates
             requestAnimationFrame(() => {
                 this.flushOperations();
@@ -103,7 +103,7 @@ export class DOMUtils {
         const operations = [...this.deferredOperations];
         this.deferredOperations = [];
         this.isScheduled = false;
-        
+
         operations.forEach(operation => {
             try {
                 operation();
@@ -126,13 +126,13 @@ export class DOMUtils {
     ): void {
         // Use document fragment for better performance
         const fragment = document.createDocumentFragment();
-        
+
         // Create elements
         for (let i = 0; i < count; i++) {
             const element = createFn(i);
             fragment.appendChild(element);
         }
-        
+
         // Append all elements at once
         container.appendChild(fragment);
     }
@@ -161,13 +161,17 @@ export class DOMUtils {
     ): void {
         // Remove event listeners
         const elements = container.querySelectorAll(selector);
-        elements.forEach(element => {
-            events.forEach(eventName => {
-                element.replaceWith(element.cloneNode(true));
+        elements.forEach((element) => {
+            events.forEach((eventName) => {
+                const clone = element.cloneNode(true) as HTMLElement;
+                (element as HTMLElement).replaceWith(clone);
             });
         });
-        
-        // Clear container
+
+        events.forEach((eventName) => {
+            container.replaceWith(container.cloneNode(true));
+        });
+
         this.clearContainer(container);
     }
 
@@ -181,8 +185,8 @@ export class DOMUtils {
         delay: number
     ): (...args: Parameters<T>) => void {
         let timeoutId: number | undefined;
-        
-        return function(this: any, ...args: Parameters<T>) {
+
+        return function (this: any, ...args: Parameters<T>) {
             clearTimeout(timeoutId);
             timeoutId = window.setTimeout(() => fn.apply(this, args), delay);
         };
@@ -198,8 +202,8 @@ export class DOMUtils {
         limit: number
     ): (...args: Parameters<T>) => void {
         let lastCall = 0;
-        
-        return function(this: any, ...args: Parameters<T>) {
+
+        return function (this: any, ...args: Parameters<T>) {
             const now = Date.now();
             if (now - lastCall >= limit) {
                 lastCall = now;
