@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run Lint code
-        uses: github/super-linter@v7.3.0
+        uses: github/super-linter@latest
         continue-on-error: true
         env:
           DEFAULT_BRANCH: main
