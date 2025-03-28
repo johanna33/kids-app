@@ -1,13 +1,13 @@
 /* Main CSS file that imports all modular CSS files */
 
 /* Import base styles (reset, variables, typography) */
-@import 'base.css';
+@import "base.css";
 
 /* Import layout styles (container, header, footer) */
-@import 'layout/layout.css';
+@import "layout/layout.css";
 
 /* Import component styles (buttons, cards) */
-@import 'components/components.css';
+@import "components/components.css";
 
 /* Import section-specific styles */
-@import 'sections/sections.css';
+@import "sections/sections.css";
