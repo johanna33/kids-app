@@ -10,7 +10,6 @@ An interactive web application designed to help preschoolers learn basic concept
 - Color recognition
 - And more
 
-
 ## Getting Started
 
 ### Prerequisites
@@ -23,9 +22,10 @@ An interactive web application designed to help preschoolers learn basic concept
 - HTML5
 - CSS3
 - TypeScript
-- Parcel Bundler 
+- Parcel
+- Jest
 
-### Installation
+### Installation and usage
 
 1. Clone this repository
 2. Install dependencies:
@@ -37,6 +37,17 @@ An interactive web application designed to help preschoolers learn basic concept
    npm start
    ```
 4. Open your browser and navigate to `http://localhost:1234`
+
+5. Clear cache and Restart the server:
+   ```
+   npm run clean
+   npm i
+   npm start
+   ```
+6. Run the unit tests:
+   ```
+   npm run test
+   ```
 
 ## Building for Production
 
