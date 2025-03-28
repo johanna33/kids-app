@@ -81,7 +81,7 @@ export class SectionManager {
    * @param sectionName The section name to load
    */
   private async loadAndInitializeSection(
-    sectionName: string
+    sectionName: string,
   ): Promise<SectionModule> {
     if (this.loadedSections.has(sectionName)) {
       return this.loadedSections.get(sectionName)!;
@@ -110,7 +110,7 @@ export class SectionManager {
    * @param sectionName The section name to import
    */
   private async importAndInitializeSection(
-    sectionName: string
+    sectionName: string,
   ): Promise<SectionModule> {
     const sectionImports: Record<string, () => Promise<any>> = {
       alphabet: () => import("../sections/alphabet"),
@@ -133,7 +133,7 @@ export class SectionManager {
         };
       } else {
         throw new Error(
-          `Section module ${sectionName} does not have an initialize function`
+          `Section module ${sectionName} does not have an initialize function`,
         );
       }
     } catch (error) {

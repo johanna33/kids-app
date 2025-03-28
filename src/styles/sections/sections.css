@@ -2,628 +2,642 @@
 
 /* Alphabet Section */
 .alphabet-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
 }
 
 .letter-card {
-    width: 100px;
-    height: 100px;
-    background-color: var(--primary-color);
-    border-radius: var(--border-radius);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    transition: transform var(--transition-speed), background-color var(--transition-speed);
-    box-shadow: var(--box-shadow);
+  width: 100px;
+  height: 100px;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition:
+    transform var(--transition-speed),
+    background-color var(--transition-speed);
+  box-shadow: var(--box-shadow);
 }
 
 .letter-card:hover,
 .letter-card:focus {
-    transform: scale(1.1);
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    outline: none;
+  transform: scale(1.1);
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  outline: none;
 }
 
 .letter-card:focus-visible {
-    outline: 3px solid var(--secondary-color);
-    outline-offset: 2px;
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 2px;
 }
 
 /* Numbers Section */
 .numbers-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
 }
 
 .number-card {
-    width: 100px;
-    height: 100px;
-    background-color: var(--secondary-color);
-    border-radius: var(--border-radius);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    transition: transform var(--transition-speed), background-color var(--transition-speed);
-    box-shadow: var(--box-shadow);
+  width: 100px;
+  height: 100px;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition:
+    transform var(--transition-speed),
+    background-color var(--transition-speed);
+  box-shadow: var(--box-shadow);
 }
 
 .number-card:hover,
 .number-card:focus {
-    transform: scale(1.1);
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    outline: none;
+  transform: scale(1.1);
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  outline: none;
 }
 
 .number-card:focus-visible {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 2px;
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 /* Colors Section */
 .colors-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
 }
 
 .color-card {
-    width: 120px;
-    height: 120px;
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    cursor: pointer;
-    transition: transform var(--transition-speed);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  position: relative;
 }
 
 .color-card:hover,
 .color-card:focus {
-    transform: scale(1.1);
-    outline: none;
+  transform: scale(1.1);
+  outline: none;
 }
 
 .color-card:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .color-name {
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 100%;
-    text-align: center;
-    padding: 5px 0;
-    font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: bold;
 }
 
 /* Shapes Section */
 .shapes-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
 }
 
 .shape-card {
-    width: 150px;
-    height: 150px;
-    background-color: white;
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-md);
-    cursor: pointer;
-    transition: transform var(--transition-speed);
-    box-shadow: var(--box-shadow);
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+  box-shadow: var(--box-shadow);
 }
 
 .shape-card:hover,
 .shape-card:focus {
-    transform: scale(1.1);
-    outline: none;
+  transform: scale(1.1);
+  outline: none;
 }
 
 .shape-card:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .shape-display {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .shape-name {
-    font-weight: bold;
-    margin-top: var(--spacing-sm);
+  font-weight: bold;
+  margin-top: var(--spacing-sm);
 }
 
 /* Positions Section */
 .positions-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
 }
 
 .position-card {
-    width: 180px;
-    height: 180px;
-    background-color: white;
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-md);
-    cursor: pointer;
-    transition: transform var(--transition-speed);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
+  width: 180px;
+  height: 180px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
 }
 
 .position-card:hover,
 .position-card:focus {
-    transform: scale(1.05);
-    outline: none;
+  transform: scale(1.05);
+  outline: none;
 }
 
 .position-card:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .position-display {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
 .position-name {
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-top: var(--spacing-sm);
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 15px;
-    text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: var(--spacing-sm);
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  text-transform: uppercase;
 }
 
 .position-object {
-    width: 40px;
-    height: 40px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  position: absolute;
 }
 
 .position-reference {
-    width: 80px;
-    height: 20px;
-    background-color: var(--accent-color);
-    border-radius: 5px;
-    position: absolute;
+  width: 80px;
+  height: 20px;
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  position: absolute;
 }
 
 /* Emotions Section */
 .emotions-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
 }
 
 .emotion-card {
-    width: 180px;
-    height: 220px;
-    background-color: white;
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-md);
-    cursor: pointer;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
+  width: 180px;
+  height: 220px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition:
+    transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
 }
 
 .emotion-card:hover,
 .emotion-card:focus {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    outline: none;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  outline: none;
 }
 
 .emotion-card:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .emotion-icon {
-    font-size: 80px;
-    margin: var(--spacing-sm) 0;
+  font-size: 80px;
+  margin: var(--spacing-sm) 0;
 }
 
 .emotion-name {
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-top: var(--spacing-sm);
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 15px;
-    text-align: center;
-    width: 100%;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: var(--spacing-sm);
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  text-align: center;
+  width: 100%;
 }
 
 .emotion-description {
-    font-size: 1rem;
-    text-align: center;
-    margin-top: var(--spacing-sm);
-    color: var(--text-color);
+  font-size: 1rem;
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  color: var(--text-color);
 }
 
 /* Body Parts Section */
 .bodyParts-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
 }
 
 .bodyPart-card {
-    width: 220px;
-    height: 280px;
-    background-color: white;
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-lg);
-    cursor: pointer;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    box-shadow: var(--box-shadow);
-    position: relative;
-    overflow: hidden;
+  width: 220px;
+  height: 280px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  transition:
+    transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
 }
 
 .bodyPart-card:hover,
 .bodyPart-card:focus {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    outline: none;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  outline: none;
 }
 
 .bodyPart-card:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .bodyPart-emoji {
-    font-size: 60px;
-    margin: var(--spacing-sm) 0;
-    transition: transform var(--transition-speed);
+  font-size: 60px;
+  margin: var(--spacing-sm) 0;
+  transition: transform var(--transition-speed);
 }
 
 .bodyPart-name {
-    font-weight: bold;
-    font-size: 1.4rem;
-    margin: var(--spacing-sm) 0;
-    color: white;
-    background-color: var(--primary-color);
-    padding: 5px 15px;
-    border-radius: 15px;
-    text-align: center;
-    width: 100%;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin: var(--spacing-sm) 0;
+  color: white;
+  background-color: var(--primary-color);
+  padding: 5px 15px;
+  border-radius: 15px;
+  text-align: center;
+  width: 100%;
 }
 
 .bodyPart-description {
-    font-size: 1.1rem;
-    text-align: center;
-    margin: 5px 0;
-    color: var(--text-color);
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 5px 0;
+  color: var(--text-color);
 }
 
 .bodyPart-function {
-    font-size: 1rem;
-    text-align: center;
-    margin-top: var(--spacing-sm);
-    color: var(--text-color);
-    font-style: italic;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  color: var(--text-color);
+  font-style: italic;
 }
 
 /* Animals Section */
 .animals-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
 }
 
 .animal-card {
-    width: 200px;
-    height: 240px;
-    background-color: white;
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-md);
-    cursor: pointer;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    position: relative;
+  width: 200px;
+  height: 240px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition:
+    transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  position: relative;
 }
 
 .animal-card:hover,
 .animal-card:focus {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    outline: none;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  outline: none;
 }
 
 .animal-card:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .animal-image {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    margin: var(--spacing-sm) 0;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: var(--spacing-sm) 0;
 }
 
 .animal-emoji {
-    font-size: 80px;
-    margin: var(--spacing-sm) 0;
+  font-size: 80px;
+  margin: var(--spacing-sm) 0;
 }
 
 .animal-name {
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-top: var(--spacing-sm);
-    background-color: var(--primary-color);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 15px;
-    text-align: center;
-    width: 100%;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: var(--spacing-sm);
+  background-color: var(--primary-color);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  text-align: center;
+  width: 100%;
 }
 
 .animal-fact {
-    font-size: 1rem;
-    text-align: center;
-    margin-top: var(--spacing-sm);
-    color: var(--text-color);
+  font-size: 1rem;
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  color: var(--text-color);
 }
 
 .animal-sound-button {
-    position: absolute;
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 16px;
-    color: var(--text-color);
-    transition: transform 0.2s;
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-color);
+  transition: transform 0.2s;
 }
 
 .animal-sound-button:hover,
 .animal-sound-button:focus {
-    transform: scale(1.1);
-    outline: none;
+  transform: scale(1.1);
+  outline: none;
 }
 
 .animal-sound-button:focus-visible {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 2px;
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 .categories-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
 }
 
 .animal-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
 }
 
 /* Responsive Section Adjustments */
 @media (max-width: 768px) {
-    .letter-card, .number-card {
-        width: 80px;
-        height: 80px;
-        font-size: 2rem;
-    }
-    
-    .color-card, .shape-card {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .position-card {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .emotion-card {
-        width: 150px;
-        height: 190px;
-    }
-    
-    .emotion-icon {
-        font-size: 60px;
-    }
-    
-    .bodyPart-card {
-        width: 180px;
-        height: 240px;
-        padding: var(--spacing-md);
-    }
-    
-    .bodyPart-emoji {
-        font-size: 50px;
-    }
-    
-    .animal-card {
-        width: 170px;
-        height: 210px;
-    }
-    
-    .animal-image {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .animal-emoji {
-        font-size: 60px;
-    }
+  .letter-card,
+  .number-card {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+
+  .color-card,
+  .shape-card {
+    width: 100px;
+    height: 100px;
+  }
+
+  .position-card {
+    width: 150px;
+    height: 150px;
+  }
+
+  .emotion-card {
+    width: 150px;
+    height: 190px;
+  }
+
+  .emotion-icon {
+    font-size: 60px;
+  }
+
+  .bodyPart-card {
+    width: 180px;
+    height: 240px;
+    padding: var(--spacing-md);
+  }
+
+  .bodyPart-emoji {
+    font-size: 50px;
+  }
+
+  .animal-card {
+    width: 170px;
+    height: 210px;
+  }
+
+  .animal-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .animal-emoji {
+    font-size: 60px;
+  }
 }
 
 @media (max-width: 480px) {
-    .letter-card, .number-card {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
-    
-    .color-card, .shape-card {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .position-card {
-        width: 130px;
-        height: 130px;
-    }
-    
-    .emotion-card {
-        width: 130px;
-        height: 170px;
-    }
-    
-    .emotion-icon {
-        font-size: 50px;
-    }
-    
-    .emotion-name {
-        font-size: 1.1rem;
-    }
-    
-    .emotion-description {
-        font-size: 0.9rem;
-    }
-    
-    .bodyPart-card {
-        width: 150px;
-        height: 220px;
-        padding: var(--spacing-sm);
-    }
-    
-    .bodyPart-emoji {
-        font-size: 40px;
-    }
-    
-    .bodyPart-name {
-        font-size: 1.1rem;
-    }
-    
-    .bodyPart-description {
-        font-size: 0.9rem;
-    }
-    
-    .bodyPart-function {
-        font-size: 0.8rem;
-    }
-    
-    .animal-card {
-        width: 150px;
-        height: 190px;
-    }
-    
-    .animal-image {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .animal-emoji {
-        font-size: 50px;
-    }
-    
-    .animal-name {
-        font-size: 1.1rem;
-    }
-    
-    .animal-fact {
-        font-size: 0.9rem;
-    }
+  .letter-card,
+  .number-card {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .color-card,
+  .shape-card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .position-card {
+    width: 130px;
+    height: 130px;
+  }
+
+  .emotion-card {
+    width: 130px;
+    height: 170px;
+  }
+
+  .emotion-icon {
+    font-size: 50px;
+  }
+
+  .emotion-name {
+    font-size: 1.1rem;
+  }
+
+  .emotion-description {
+    font-size: 0.9rem;
+  }
+
+  .bodyPart-card {
+    width: 150px;
+    height: 220px;
+    padding: var(--spacing-sm);
+  }
+
+  .bodyPart-emoji {
+    font-size: 40px;
+  }
+
+  .bodyPart-name {
+    font-size: 1.1rem;
+  }
+
+  .bodyPart-description {
+    font-size: 0.9rem;
+  }
+
+  .bodyPart-function {
+    font-size: 0.8rem;
+  }
+
+  .animal-card {
+    width: 150px;
+    height: 190px;
+  }
+
+  .animal-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .animal-emoji {
+    font-size: 50px;
+  }
+
+  .animal-name {
+    font-size: 1.1rem;
+  }
+
+  .animal-fact {
+    font-size: 0.9rem;
+  }
 }
 
 /* Reduced Motion Adjustments for Sections */
 @media (prefers-reduced-motion: reduce) {
-    .letter-card:hover,
-    .number-card:hover,
-    .color-card:hover,
-    .shape-card:hover,
-    .position-card:hover,
-    .emotion-card:hover,
-    .bodyPart-card:hover,
-    .animal-card:hover {
-        transform: scale(1.03);
-    }
-} 
+  .letter-card:hover,
+  .number-card:hover,
+  .color-card:hover,
+  .shape-card:hover,
+  .position-card:hover,
+  .emotion-card:hover,
+  .bodyPart-card:hover,
+  .animal-card:hover {
+    transform: scale(1.03);
+  }
+}

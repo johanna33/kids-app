@@ -51,7 +51,7 @@ describe("SectionManager", () => {
       const consoleSpy = jest.spyOn(console, "error").mockImplementation();
       await sectionManager.switchSection("nonexistent-section");
       expect(consoleSpy).toHaveBeenCalledWith(
-        "Section element #nonexistent-section-section not found"
+        "Section element #nonexistent-section-section not found",
       );
       expect(welcomeScreen.classList.contains("active")).toBe(true);
       consoleSpy.mockRestore();
@@ -67,7 +67,7 @@ describe("SectionManager", () => {
 
       const sectionName = "section-1";
       const result = await (sectionManager as any).loadAndInitializeSection(
-        sectionName
+        sectionName,
       );
 
       expect(result).toBe(mockModule);
@@ -79,7 +79,7 @@ describe("SectionManager", () => {
       (sectionManager as any).loadedSections.set("section-1", mockModule);
 
       const result = await (sectionManager as any).loadAndInitializeSection(
-        "section-1"
+        "section-1",
       );
       expect(result).toBe(mockModule);
       expect(mockModule.initialize).not.toHaveBeenCalled(); // No re-initialization

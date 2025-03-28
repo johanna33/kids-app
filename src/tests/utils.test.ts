@@ -42,7 +42,7 @@ describe("Utils Module", () => {
 
       speakText("Hello, world!");
       expect(consoleSpy).toHaveBeenCalledWith(
-        "Text-to-speech not supported in this browser"
+        "Text-to-speech not supported in this browser",
       );
 
       consoleSpy.mockRestore();
@@ -67,7 +67,7 @@ describe("Utils Module", () => {
       jest.useFakeTimers(); // Use fake timers to control the interval
       const speakTextSpy = jest.spyOn(
         require("../scripts/common/utils"),
-        "speakText"
+        "speakText",
       );
 
       showCountingAnimation(3);
