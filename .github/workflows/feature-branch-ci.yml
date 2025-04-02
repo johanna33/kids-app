@@ -3,7 +3,7 @@ name: Feature Workflow pipeline
 on:
   push:
     branches:
-      - '**'
+      - "**"
   pull_request:
     branches:
       - main
@@ -53,27 +53,27 @@ jobs:
           path: "${{ github.workspace }}/test-report.html"
           retention-days: 2
 
-  # build: # job that will build the project
-  #   runs-on: ubuntu-latest
+  build: # job that will build the project
+    runs-on: ubuntu-latest
+    needs: unit-tests
 
-  #   steps:
-  #     - name: Checkout repo code
-  #       uses: actions/checkout@v2
+    steps:
+      - name: Checkout repo code
+        uses: actions/checkout@v2
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: "23.7.0"
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "23.7.0"
 
-  #     - name: Install dependencies
-  #       run: npm install
+      - name: Install dependencies
+        run: npm install
 
-  #     - name: Build with Parcel
-  #       run: npm run build
+      - name: Build with Parcel
+        run: npm run build
 
-  #     - name: Upload artifacts
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: kids-app
-          # path: "${{ github.workspace }}/dist/"
-
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kids-app
+          path: "${{ github.workspace }}/dist/"
