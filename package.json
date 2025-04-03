@@ -6,6 +6,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html --public-url ./",
+    "build-app": "parcel build src/index.html --public-url ./ && echo > dist/.nojekyll",
     "deploy": "gh-pages -d dist",
     "clean": "rm -rf .parcel-cache dist node_modules",
     "startLogs": "parcel src/index.html --log-level verbose",
