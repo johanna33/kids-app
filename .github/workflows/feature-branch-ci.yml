@@ -70,7 +70,7 @@ jobs:
         run: npm install
 
       - name: Build with Parcel
-        run: npm run build
+        run: npm run build-app
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -88,4 +88,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          npm run deploy
+          npm run deploy-app
