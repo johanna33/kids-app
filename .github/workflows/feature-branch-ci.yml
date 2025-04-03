@@ -1,9 +1,9 @@
 name: Feature Workflow pipeline
 
 on:
-  push: # when a push to any branch
-    branches:
-      - "**"
+  push: # when a push to any branch except main
+    branches-ignore:
+      - main
   pull_request: # when a PR is created/change
     branches:
       - main
