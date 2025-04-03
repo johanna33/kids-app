@@ -80,7 +80,7 @@ jobs:
 
       - name: Set git user
         run: |
-          git config --global user.name "Johanna Calderon"
+          git config --global user.name "johanna33"
           git config --global user.email "joha_17@hotmail.com"
 
       - name: Deploy to GitHub Pages
