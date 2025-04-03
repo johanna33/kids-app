@@ -14,7 +14,7 @@ jobs:
 
   #   steps:
   #     - name: Checkout repo code
-  #       uses: actions/checkout@v2
+  #       uses: actions/checkout@v4
   #       with:
   #         fetch-depth: 0
 
@@ -32,10 +32,10 @@ jobs:
 
     steps:
       - name: Checkout repo code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: "23.7.0"
 
@@ -59,10 +59,10 @@ jobs:
 
     steps:
       - name: Checkout repo code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: "23.7.0"
 
@@ -84,15 +84,21 @@ jobs:
 
     steps:
       - name: Checkout repo code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: "23.7.0"
 
       - name: Install dependencies
         run: npm install
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: kids-app
+          path: "${{ github.workspace }}/dist/"
 
       - name: Set git user
         run: |
