@@ -1,10 +1,10 @@
 name: Feature Workflow pipeline
 
 on:
-  push:
+  push: # when a push to any branch
     branches:
       - "**"
-  pull_request:
+  pull_request: # when a PR is created/change
     branches:
       - main
 
@@ -77,3 +77,6 @@ jobs:
         with:
           name: kids-app
           path: "${{ github.workspace }}/dist/"
+
+      - name: Deploy to GitHub Pages
+        run: npm run deploy
