@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html --public-url ./",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist -u \"github-actions-bot support+actions@github.com\"",
     "clean": "rm -rf .parcel-cache dist node_modules",
     "startLogs": "parcel src/index.html --log-level verbose",
     "test": "jest"
