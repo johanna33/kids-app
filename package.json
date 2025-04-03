@@ -2,11 +2,11 @@
   "name": "kids-app",
   "version": "1.0.0",
   "description": "A preschool learning web application",
-  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
+    "deploy": "gh-pages -d dist -u \"github-actions-bot <support+actions@github.com>\"",
     "clean": "rm -rf .parcel-cache dist node_modules",
     "startLogs": "parcel src/index.html --log-level verbose",
     "test": "jest"
@@ -21,11 +21,13 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.14",
+    "gh-pages": "^6.3.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-html-reporter": "^4.1.0",
     "jsdom": "^26.0.0",
     "parcel": "^2.13.3",
+    "svgo": "^3.3.2",
     "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
