@@ -78,5 +78,10 @@ jobs:
           name: kids-app
           path: "${{ github.workspace }}/dist/"
 
+      - name: Set git user
+        run: |
+          git config --global user.name "Johanna Calderon"
+          git config --global user.email "joha_17@hotmail.com"
+
       - name: Deploy to GitHub Pages
         run: npm run deploy
